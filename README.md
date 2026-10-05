@@ -27,6 +27,8 @@ Kartu LIBUR masuk ke unduhan ZIP dan tabel rekap. Poster mempertahankan bentuk p
 
 Tekan **Ambil foto** pada tanggal kerja yang diinginkan. Kamera menampilkan pratinjau dengan tanggal, dinas, nama, serta jam yang sudah dipilih. Tekan **Ambil & simpan foto** untuk memasukkan hasil langsung ke tanggal itu. Kamera depan dicerminkan seperti pratinjau. Kamera dilepas saat dialog ditutup atau foto sudah diambil.
 
+Bidang pandang kamera ditampilkan utuh, tanpa crop otomatis untuk memenuhi bingkai. Kamera tidak diminta memakai rasio potret tertentu; browser diminta mempertahankan rasio kamera jika mendukungnya. Jika rasio kamera berbeda dari 3:4, hasil memiliki tepi gelap agar gambar tetap utuh. Jika browser menyediakan pengaturan zoom yang sudah diizinkan, zoom dikembalikan ke nilai minimum kamera. Perilaku pilihan lensa tetap mengikuti perangkat dan browser.
+
 Fitur ini membutuhkan HTTPS atau localhost, dan izin kamera browser. Gunakan **Go Live** di VS Code untuk menjalankannya di laptop. Jika kamera tidak tersedia, tetap bisa memilih foto dari perangkat pada tanggal tersebut.
 
 ## Foto yang sudah bertimestamp
@@ -91,7 +93,7 @@ Jam dapat diketik manual (00:00:00–23:59:59) atau diacak mengikuti dinas. Mode
 
 Nama dan NIPP bawaan adalah Andisa. Isi nama/NIPP lain, lalu tekan **Simpan Petugas**. Nama di foto otomatis memakai huruf besar. Menu **Petugas tersimpan** bisa dipakai memilih kembali petugas. Menyimpan NIPP yang sudah ada memperbarui namanya. Petugas terakhir yang disimpan/dipilih dimuat lagi saat halaman dibuka.
 
-Data petugas tersimpan melalui localStorage di browser/perangkat yang sama. Data tidak disinkronkan antarperangkat dan dapat hilang saat data situs dibersihkan. Browser yang memblokir penyimpanan tetap bisa memakai petugas untuk sesi saat ini. Foto tidak disimpan otomatis.
+Data petugas tersimpan melalui localStorage di browser/perangkat yang sama. Data tidak disinkronkan antarperangkat dan dapat hilang saat data situs dibersihkan. Browser yang memblokir penyimpanan tetap bisa memakai petugas untuk sesi saat ini. Foto dan pengaturan draf disimpan otomatis melalui IndexedDB jika tersedia.
 
 ## Koordinat manual
 
@@ -118,6 +120,6 @@ Lokasi merupakan koordinat manual dengan variasi digit akhir, bukan pembacaan GP
 - `zip.js`: penulisan arsip ZIP tanpa pustaka eksternal. File JPG sudah terkompresi sehingga disimpan langsung dalam arsip.
 - `assets/kai.png`: salinan aset logo. Logo juga ditanam di `app.js` agar unduhan tetap berjalan saat file HTML dibuka langsung.
 
-Foto kerja dipaskan dengan crop tengah ke rasio 3:4; poster LIBUR mempertahankan rasio aslinya. Kamera depan ditampilkan dan disimpan sebagai cermin; teks dan logo tetap terbaca normal. Sumber foto disimpan terpisah sehingga perubahan tanggal tidak menumpuk timestamp. Kedua mode menyimpan draf lokal bila penyimpanan tersedia.
+Foto kerja yang diunggah dipaskan dengan crop tengah ke rasio 3:4; kamera langsung menampilkan dan menyimpan seluruh bidang gambar dengan tepi gelap bila rasio berbeda. Poster LIBUR mempertahankan rasio aslinya. Kamera depan ditampilkan dan disimpan sebagai cermin; teks dan logo tetap terbaca normal. Sumber foto disimpan terpisah sehingga perubahan tanggal tidak menumpuk timestamp. Kedua mode menyimpan draf lokal bila penyimpanan tersedia.
 
 Tema halaman memakai latar cerah dengan biru, mint, dan peach. Kartu foto beraksen mint, sedangkan kartu LIBUR beraksen peach. Warna tema dapat disesuaikan melalui variabel pada bagian awal `style.css`.
